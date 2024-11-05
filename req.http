@@ -1,0 +1,12 @@
+POST http://localhost:3200/api/hackathon HTTP/1.1
+
+Content-Type: application/json
+{
+    "titre": "Hackathon Name",
+    "description": "voila Description",
+    "date": "01/01/2022",
+    "partenaire": "hackathon partenaire"
+}
+
+###
+GET http://localhost:3200/ HTTP/1.1
