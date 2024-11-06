@@ -44,9 +44,9 @@ app.post("/api/hackathon", (req, res) => {
     connection.query(query, [titre, description, formateddate.toISOString().slice(0,10), partenaire], (err, result) => {
       if (err) {
         console.error(err);
-        res.status(500).send("Error adding hackathon");
+        res.status(500).json("Error adding hackathon");
       } else {
-        res.status(200).send("Hackathon added successfully");
+        res.status(200).json("Hackathon added successfully");
       }
     });
   });
