@@ -50,6 +50,18 @@ app.post("/api/hackathon", (req, res) => {
       }
     });
   });
+
+  app.get("/api/hackathon/recup", (req, res) => {
+    const query = "SELECT * FROM ajouter";
+    connection.query(query, (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ message: "Erreur lors de la récupération des hackathons" });
+        } else {
+            res.status(200).json(results); // Renvoyer les résultats sous forme de JSON
+        }
+    });
+});
 app.get("/",(req,res)=>{
     res.send("Hello, Welcome to the hackathon app!");
 })
@@ -58,6 +70,6 @@ app.get("/",(req,res)=>{
 //     res.send(req.body)
 //     res.status(201).json({message: "Hackathon created successfully"});
 // })
-app.get("/api/hackathon",(req,res)=>{
-    res.status(201).json({message: "Hackathon created successfully"});
-})
+// app.get("/api/hackathon",(req,res)=>{
+//     res.status(201).json({message: "Hackathon created successfully"});
+// })
